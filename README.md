@@ -1,21 +1,20 @@
-
 # PyTexas 2013 - Using Nginx, Gunicorn, and Upstart to serve a WSGI app
 
-By John-Michael Oswalt. Got a django/flask/other wsgi app and want the world to see it? Come learn all the necessary parts to get your app up and running on a server or a local VM.
+By John-Michael Oswalt ([@jmoswalt](http://twitter.com/jmoswalt)) Got a django/flask/other wsgi app and want the world to see it? Come learn all the necessary parts to get your app up and running on a server or a local VM.
 
 This talk will cover the configuration of [Nginx](http://nginx.com/ ) (web server and reverse proxy), [Gunicorn](http://gunicorn.org/ ) (WSGI server), and [Upstart](http://upstart.ubuntu.com/)  (Ubuntu lightweight process manager) so that you can serve your Django or Flask app on a server. We will start with a vanilla Ubuntu 12.04 instance and take a pre-built Django app and setup all the necessary parts to get the app up and running. The code will be available for this talk so that you can follow along with your own server, or come back to it later to see how it's done. 
 
-The instructions below were from the talk and presented at PyTexas 2013 in College Station on August 17th, 2013.
+The instructions below were from a talk presented at PyTexas 2013 in College Station on August 17th, 2013.
 
 ## Launch a box
 
 This can be a [Vagrant](http://www.vagrantup.com/)  box (see Vagrantfile) or this could be a VPS somewhere like linode, digital ocean, AWS, Rackspace, etc. You will need root access to install packages and files.
 
-Instructions below are for Ubuntu 12.04 64 bit, though they make for other Debian and Ubuntu install.
+Instructions below are for Ubuntu 12.04 64 bit, though they may work for other Debian and Ubuntu installs.
 
 ## Install packages
 
-We will be using git to pull a package, pip for our virtualenv and packages, and nginx as our proxy server. First we will update our package list and then install our necessary packages:
+We will be using git to pull a django project, pip for our virtualenv and packages, and nginx as our proxy server. First we will update our package list and then install our necessary packages:
 
     apt-get update
     apt-get install -y git python-pip nginx
